@@ -1,4 +1,8 @@
+//react
 import { useState } from "react";
+
+//components
+import LargeButton from "../buttons/largeButton.jsx";
 
 const LoginForm = () => {
 
@@ -15,23 +19,38 @@ const LoginForm = () => {
 
     const handleSendData = (event) => {
 
-        event.preventDefault();
+        try {
 
-        const body = {
-            email:emailState,
-            password: passwordState
+            event.preventDefault();
+
+            if(!emailState.includes(["@"])){ throw new Error("Che esto no es un mail")};
+            if(!passwordState){ throw new Error("Che, llena el password")}
+    
+            const body = {
+                email:emailState,
+                password: passwordState
+            };
+
+            console.log(body)
+
+            
+        } catch (error) { 
+            alert( error.message );
         }
-
-        console.log(body)
 
     };
 
     return(
 
-        <form onSubmit={handleSendData}>
+        <form>
                 <input type="text" placeholder="Email" value={emailState} onChange={handleEmailState} />
                 <input type="password" placeholder="Password" value={passwordState} onChange={handlePasswordState} />
-                <button type="submit"> Login </button>
+
+                <LargeButton
+                text={"Login"}
+                action={handleSendData}
+                />
+                
         </form>
 
     )
