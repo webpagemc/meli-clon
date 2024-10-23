@@ -15,7 +15,8 @@ const Products = {
         }
 
         const response = request.json();
-        console.log("Request Successfull")
+
+        console.log("Request Successfull");
         return response;
 
     },

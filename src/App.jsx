@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import LoginForm from "./components/forms/loginForm.jsx"
-import Products from "./api/products.api.js";
+//react
+//import RRD from "react-router-dom"
 
+//page
+import LoginPage from "./pages/login.jsx";
+import DashboardPage from "./pages/dahsboard.jsx";
 
 const App = () => {
 
     return(
-
-        <div className="container">
-            <LoginForm />
-        </div>
-
+        <>
+        <DashboardPage/>
+        </>
     )
 
 };

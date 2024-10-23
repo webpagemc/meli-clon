@@ -5,56 +5,62 @@ import { useState } from "react";
 import LargeButton from "../buttons/largeButton.jsx";
 
 const LoginForm = () => {
+  const [emailState, setEmailState] = useState("");
+  const [passwordState, setPasswordState] = useState("");
 
-    const [ emailState, setEmailState ] = useState(null);
-    const [ passwordState, setPasswordState ] = useState(null);
+  const handleEmailState = (event) => {
+    setEmailState(event.target.value);
+  };
 
-    const handleEmailState = (event) => {
-        setEmailState(event.target.value)
-    };
+  const handlePasswordState = (event) => {
+    setPasswordState(event.target.value);
+  };
 
-    const handlePasswordState = (event) => {
-        setPasswordState(event.target.value)
-    };
+  const handleSendData = (event) => {
+    try {
+      event.preventDefault();
 
-    const handleSendData = (event) => {
+      if (!emailState.includes(["@"])) {
+        throw new Error("Che esto no es un mail");
+      }
+      if (!passwordState) {
+        throw new Error("Che, llena el password");
+      }
 
-        try {
+      const body = {
+        email: emailState,
+        password: passwordState,
+      };
 
-            event.preventDefault();
+      console.log(body);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
-            if(!emailState.includes(["@"])){ throw new Error("Che esto no es un mail")};
-            if(!passwordState){ throw new Error("Che, llena el password")}
-    
-            const body = {
-                email:emailState,
-                password: passwordState
-            };
+  return (
+    <div className = "login">
+       <form>
+      <h1>LOG IN</h1>
+      <input
+        type="text"
+        placeholder="Email"
+        value={emailState}
+        onChange={handleEmailState}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={passwordState}
+        onChange={handlePasswordState}
+      />
 
-            console.log(body)
+      <LargeButton text={"Submit"} action={handleSendData} />
+    </form>
 
-            
-        } catch (error) { 
-            alert( error.message );
-        }
-
-    };
-
-    return(
-
-        <form>
-                <input type="text" placeholder="Email" value={emailState} onChange={handleEmailState} />
-                <input type="password" placeholder="Password" value={passwordState} onChange={handlePasswordState} />
-
-                <LargeButton
-                text={"Login"}
-                action={handleSendData}
-                />
-                
-        </form>
-
-    )
-
+    </div>
+   
+  );
 };
 
 export default LoginForm;
