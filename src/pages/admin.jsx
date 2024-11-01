@@ -1,6 +1,6 @@
 //components
 import DashboardHeader from "../components/headers/dashboardHeader.jsx";
-import AddProductForm from "../components/forms/addProductForm.jsx"
+import AddProductForm from "../components/forms/addProductForm.jsx";
 
 const AdminPage = () => {
 
@@ -8,9 +8,7 @@ const AdminPage = () => {
         <div>
 
             <DashboardHeader></DashboardHeader>
-
             <AddProductForm></AddProductForm>
-            
             
         </div>
     )
