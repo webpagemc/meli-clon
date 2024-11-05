@@ -10,11 +10,12 @@ import About from "./pages/about.jsx";
 import SysAdmin from "./pages/sysAdmin.jsx"
 
 // import { AuthContextProvider } from "./components/Services/AuthContex.jsx";
-import  {ThemeProvider}  from "./hooks/theme.ctx.jsx"
+import {ThemeProvider}  from "./hooks/theme.ctx.jsx"
 
 import NotFound from "./components/notFound/NotFound";
 
 const App = () => {
+
   const router = createBrowserRouter([
     {
       element: <LoginPage />,

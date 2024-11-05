@@ -4,7 +4,6 @@ import { Row } from "react-bootstrap";
 
 //components
 import LargeButton from "../buttons/largeButton.jsx";
-import ToggleTheme from "../buttons/ToggleButton.jsx";
 
 const LoginForm = () => {
   const [emailState, setEmailState] = useState("");

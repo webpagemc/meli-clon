@@ -2,7 +2,7 @@
 import {useState} from "react";
 
 //utils
-import handleChangeForm from "../../utils/helpers/handleChangeForm.js"
+import handleChangeForm from "../../utils/helpers/handleChangeForm.js";
 
 const AddProductForm = () => {
 

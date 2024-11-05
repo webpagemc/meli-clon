@@ -1,5 +1,5 @@
 //react
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 //api
 import Products from "../api/products.api.js"
@@ -10,6 +10,10 @@ import Footer from "../components/footers/footer.jsx";
 
 //utils
 import env from "../utils/enviroment.js";
+
+//ctx
+import { ThemeContext } from "../hooks/theme.ctx.jsx";
+
 
 const ProductPage = () => {
 
@@ -36,11 +40,18 @@ const ProductPage = () => {
 
         getProduct();
 
-    },[])
+    },[]);
+
+    //ctx
+    const { themeState, setThemeState } = useContext(ThemeContext);
+
+    useEffect(() => {
+        const theme = window.localStorage.getItem("theme") ?? "light";
+        setThemeState(theme);
+    }, []);
 
     return(
         <>
-
        <DashboardHeader/>
         
         {
