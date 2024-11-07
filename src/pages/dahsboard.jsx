@@ -17,6 +17,7 @@ const DashboardPage = () => {
 
     //getproducts
     const [ productsState, setProductsState ] = useState([]);
+    
     const getProducts = async() => {
 
         const products = await Products.getProducts();
